@@ -18,12 +18,14 @@ class BeautyTextfield extends StatefulWidget {
   final int maxLength, minLines, maxLines;
   final ValueChanged<String> onChanged, onSubmitted;
   final GestureTapCallback onTap;
+  final TextEditingController controller;
 
   const BeautyTextfield(
       {@required this.width,
       @required this.height,
       @required this.prefixIcon,
       @required this.inputType,
+      this.controller,
       this.suffixIcon,
       this.duration = const Duration(milliseconds: 500),
       this.margin = const EdgeInsets.all(10),
@@ -133,6 +135,7 @@ class _BeautyTextfieldState extends State<BeautyTextfield> {
                   child: Container(
                     margin: EdgeInsets.only(right: 50, top: 3),
                     child: TextField(
+                      controller: widget.controller,
                       cursorWidth: 2,
                       obscureText: widget.obscureText,
                       keyboardType: widget.inputType,
